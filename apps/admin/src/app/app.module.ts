@@ -8,11 +8,11 @@ import { ProductModule } from './product/product.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: 'localhost',
-      port: 13306,
-      username: 'root',
-      password: 'root',
+      port: 4321,
+      username: 'docker',
+      password: '123456',
       database: 'nest_admin',
       autoLoadEntities: true,
       synchronize: true,
