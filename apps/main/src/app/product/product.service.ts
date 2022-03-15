@@ -10,7 +10,23 @@ export class ProductService {
     private readonly productModel: Model<ProductDocument>
   ) {}
 
-  async all() {
+  async all(): Promise<Product[]> {
     return this.productModel.find().exec();
+  }
+
+  async create(data): Promise<Product> {
+    return new this.productModel(data).save();
+  }
+
+  async update(id: number, data): Promise<Product> {
+    return this.productModel.findOneAndUpdate({ id }, data);
+  }
+
+  async delete(id: number) {
+    return this.productModel.deleteOne({ id });
+  }
+
+  async findOne(id): Promise<Product> {
+    return this.productModel.findById(id);
   }
 }

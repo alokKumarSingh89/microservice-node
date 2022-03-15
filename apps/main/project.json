@@ -5,12 +5,43 @@
   "targets": {
     "build": {
       "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/main",
         "main": "apps/main/src/main.ts",
         "tsConfig": "apps/main/tsconfig.app.json",
-        "assets": ["apps/main/src/assets"]
+        "assets": [
+          "apps/main/src/assets"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/main/src/environments/environment.ts",
+              "with": "apps/main/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "listenbuild": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/main",
+        "main": "apps/main/src/listener.ts",
+        "tsConfig": "apps/main/tsconfig.app.json",
+        "assets": [
+          "apps/main/src/assets"
+        ]
       },
       "configurations": {
         "production": {
@@ -32,16 +63,28 @@
         "buildTarget": "main:build"
       }
     },
+    "listen": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "main:listenbuild"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/main/**/*.ts"]
+        "lintFilePatterns": [
+          "apps/main/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/main"],
+      "outputs": [
+        "coverage/apps/main"
+      ],
       "options": {
         "jestConfig": "apps/main/jest.config.js",
         "passWithNoTests": true
