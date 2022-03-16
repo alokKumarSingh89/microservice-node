@@ -3,6 +3,7 @@
   "projects": {
     "admin": "apps/admin",
     "main": "apps/main",
-    "nest-auth": "apps/nest-auth"
+    "nest-auth": "apps/nest-auth",
+    "nest-jwt": "apps/nest-jwt"
   }
 }
