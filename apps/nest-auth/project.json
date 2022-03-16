@@ -1,0 +1,52 @@
+{
+  "root": "apps/nest-auth",
+  "sourceRoot": "apps/nest-auth/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nest-auth",
+        "main": "apps/nest-auth/src/main.ts",
+        "tsConfig": "apps/nest-auth/tsconfig.app.json",
+        "assets": ["apps/nest-auth/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/nest-auth/src/environments/environment.ts",
+              "with": "apps/nest-auth/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "nest-auth:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nest-auth/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nest-auth"],
+      "options": {
+        "jestConfig": "apps/nest-auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
