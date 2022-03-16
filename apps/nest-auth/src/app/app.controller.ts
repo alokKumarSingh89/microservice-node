@@ -16,7 +16,7 @@ export class AppController {
 
   @UseGuards(AuthenticatedGuard)
   @Get('protected')
-  protectedUrl(): any {
-    return {};
+  protectedUrl(@Request() req): any {
+    return req.user;
   }
 }
