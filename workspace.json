@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "admin": "apps/admin",
+    "auth": "apps/auth",
     "main": "apps/main"
   }
 }
