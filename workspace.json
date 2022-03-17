@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "admin": "apps/admin",
-    "main": "apps/main"
+    "main": "apps/main",
+    "nest-auth": "apps/nest-auth"
   }
 }
