@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  db:
+  postgresdb:
     image: "postgres"
     container_name: 'postgres-local'
     ports:
@@ -9,6 +9,7 @@ services:
     environment:
       POSTGRES_PASSWORD: "123456"
       POSTGRES_USER: "docker"
+      POSTGRES_DB: nest-jwt
     volumes:
       - data:/var/lib/postgresql/data
   mongodb:
