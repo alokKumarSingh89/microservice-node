@@ -8,7 +8,7 @@ import {
   Req,
 } from '@nestjs/common';
 import { Request } from 'express';
-import { GetCurrentUser, GetCurrentUserId } from '../decorators';
+import { GetCurrentUser, GetCurrentUserId, Public } from '../decorators';
 import { AuthDto } from '../dto';
 import { AtGuards, RtGuards } from '../guards';
 import { Tokens } from '../types';
@@ -18,12 +18,14 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  @Public()
   @HttpCode(HttpStatus.CREATED)
   @Post('local/signup')
   signUpLocal(@Body() dto: AuthDto): Promise<Tokens> {
     return this.authService.signUpLocal(dto);
   }
 
+  @Public()
   @HttpCode(HttpStatus.OK)
   @Post('local/signin')
   signInLocal(@Body() dto: AuthDto): Promise<Tokens> {
@@ -31,12 +33,12 @@ export class AuthController {
   }
 
   @HttpCode(HttpStatus.OK)
-  @UseGuards(AtGuards)
   @Post('logout')
   logout(@GetCurrentUserId() userid: number) {
     return this.authService.logout(userid);
   }
 
+  @Public()
   @HttpCode(HttpStatus.OK)
   @UseGuards(RtGuards)
   @Post('refresh')
