@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "admin": "apps/admin",
+    "graphql-app": "apps/graphql-app",
     "main": "apps/main",
     "nest-auth": "apps/nest-auth",
     "nest-jwt": "apps/nest-jwt"
