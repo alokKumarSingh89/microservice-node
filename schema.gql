@@ -1,0 +1,110 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  """Product ID"""
+  id: Int!
+  name: String!
+  description: String
+  image1: String
+  image2: String
+  image3: String
+  brand: String!
+  color: String!
+  price: Float!
+}
+
+type Cart {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type User {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Order {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  products: [Product!]!
+  product(id: Int!): Product!
+  cart(id: Int!): Cart!
+  user(id: Int!): User!
+  order(id: Int!): Order!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: Int!): Product!
+  createCart(createCartInput: CreateCartInput!): Cart!
+  updateCart(updateCartInput: UpdateCartInput!): Cart!
+  removeCart(id: Int!): Cart!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createOrder(createOrderInput: CreateOrderInput!): Order!
+  updateOrder(updateOrderInput: UpdateOrderInput!): Order!
+  removeOrder(id: Int!): Order!
+}
+
+input CreateProductInput {
+  name: String!
+  description: String
+  image1: String
+  image2: String
+  image3: String
+  brand: String!
+  color: String!
+  price: Float!
+}
+
+input UpdateProductInput {
+  name: String
+  description: String
+  image1: String
+  image2: String
+  image3: String
+  brand: String
+  color: String
+  price: Float
+  id: Int!
+}
+
+input CreateCartInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateCartInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateOrderInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateOrderInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
